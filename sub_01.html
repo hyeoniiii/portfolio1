@@ -2,11 +2,60 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,
+maximum-scale=1, user-scalable=no">
     <title>Hyundai Card - 컬쳐·라이프 스타일</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/sub_01.css">
     <link href="font/css/all.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+    $(function(){ /////// jQB ///////////////////////
+        console.log("로딩완료!");
+        
+        
+        //배너 left위치값
+        var bleft = 0;
+        //슬라이드 요소
+        var slide = $(".sub_gallery_flow_wrap")
+        //슬라이드 하나당 크기
+        var swd = slide.find("li").width();
+        console.log("슬크기:"+swd);
+        
+        //일정시간 간격으로 위치이동하기
+        setInterval(function(){
+            //console.log("여기!");
+            // 이동대상: .sub_gallery_flow_wrap -> slide변수
+            
+            bleft++;
+            
+            console.log("슬이동:"+bleft);
+            
+            // left이동값이 슬라이드 하나크기를 넘어가면 잘라서 맨뒤로 이동!
+            if(bleft > swd){
+                //맨앞 슬라이드 잘라서 맨뒤로 동시에 left:0
+                slide.append(slide.find("li").first())
+                .css({left:"0"});
+                bleft = 0;// left이동값 초기화!
+            } ///// if ////////////////////////////
+            
+            slide.css({
+                left: -bleft+"px"
+            });
+            
+            
+            
+        },19);///// 인터발 함수 ///////////////
+        // 이동속도는 시간으로 조정한다! ///////
+        
+        
+        
+    });////////// jQB ///////////////////////////////
+    /////////////////////////////////////////////////
+    
+    </script>
 </head>
 <body>
     <div class="main_wrap">
@@ -19,14 +68,14 @@
                     <li><a href="#">개인</a></li>
                 </ul>
             </div>
-            <h1 class="header_logo"><a href="/"><img src="images/header_logo.png"></a></h1>
+            <h1 class="header_logo"><a href="index.html"><img src="images/header_logo.png"></a></h1>
             <div class="header_gnb_wrap">
                 <div class="header_gnb_area">
                     <ul class="header_gnb">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">카드 안내·신청</a></li>
-                        <li><a href="#">컬쳐·라이프 스타일</a></li>
-                        <li><a href="#">고객센터</a></li>
+                        <li><a href="sub_03.html">My Account</a></li>
+                        <li><a href="sub_04.html">카드 안내·신청</a></li>
+                        <li><a href="sub_01.html">컬쳐·라이프 스타일</a></li>
+                        <li><a href="sub_02.html">고객센터</a></li>
                     </ul>
                 </div>
                 <!-- 검색 버튼 -->
@@ -45,13 +94,12 @@
         <div class="sub01_content_wrap">
             <ul class="sub_gallery_flow_wrap">
                 
-                <li style="background-image: url(images/175295_BIG.png);" class="img"></li>
-                   <li><img src="images/198506_BIG.png"></li>
-                   <li><img src="images/198507_BIG.png"></li>
-                   <li><img src="images/198508_BIG.png"></li>
-                   <li><img src="images/198509_BIG.png"></li>
-                
-                
+                   <li><span class="ir">배너이미지</span></li>
+                   <li><span class="ir">배너이미지</span></li>
+                   <li><span class="ir">배너이미지</span></li>
+                   <li><span class="ir">배너이미지</span></li>
+                   <li><span class="ir">배너이미지</span></li>
+                   <li><span class="ir">배너이미지</span></li>
             </ul>
             
             <div class="sub01_content_area">
@@ -148,7 +196,7 @@
                     <p class="copyright">© HYUNDAI CARD Corp.</p>
                 </div>
                 <div class="footer_logo">
-                    <a href="/"><img src="images/logo_footer.png"></a>
+                    <a href="index.html"><img src="images/logo_footer.png"></a>
                 </div>
             </div>
         </footer>
